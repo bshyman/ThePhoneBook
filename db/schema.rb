@@ -10,10 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_26_031710) do
+ActiveRecord::Schema.define(version: 2019_09_26_035229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "phone_transactions", force: :cascade do |t|
+    t.bigint "phone_id"
+    t.bigint "transaction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["phone_id"], name: "index_phone_transactions_on_phone_id"
+    t.index ["transaction_id"], name: "index_phone_transactions_on_transaction_id"
+  end
+
+  create_table "phones", force: :cascade do |t|
+    t.string "model", null: false
+    t.string "capacity", null: false
+    t.string "original_carrier"
+    t.string "unlocked", default: "f"
+    t.string "battery"
+    t.string "screen_condition"
+    t.string "frame_condition"
+    t.integer "imei", null: false
+    t.string "serial"
+    t.string "color"
+    t.string "source"
+    t.string "known_issues", array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.float "total"
+    t.float "subtotal"
+    t.float "insurance", default: 0.0
+    t.float "shipping_cost"
+    t.string "shipping_method"
+    t.date "ship_date"
+    t.string "tracking"
+    t.string "buyer_name"
+    t.string "buyer_address"
+    t.string "buyer_address2"
+    t.string "buyer_city"
+    t.string "buyer_state"
+    t.string "buyer_postal"
+    t.string "buyer_email"
+    t.string "source"
+    t.datetime "sale_time"
+    t.string "external_id"
+    t.string "payment_method"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

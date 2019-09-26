@@ -1,0 +1,2 @@
+class PhoneTransaction < ApplicationRecord
+end
