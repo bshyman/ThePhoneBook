@@ -11,10 +11,12 @@ gem 'omniauth-google-oauth2'
 gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.3'
+gem 'roo', '~> 2.8.0'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
+
 
 
 group :development do
