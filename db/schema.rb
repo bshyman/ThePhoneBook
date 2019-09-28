@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_26_035229) do
+ActiveRecord::Schema.define(version: 2019_09_28_022613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_09_26_035229) do
     t.string "battery"
     t.string "screen_condition"
     t.string "frame_condition"
-    t.integer "imei", null: false
+    t.bigint "imei", null: false
     t.string "serial"
     t.string "color"
     t.string "source"

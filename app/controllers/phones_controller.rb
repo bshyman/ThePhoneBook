@@ -60,6 +60,20 @@ class PhonesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def import_phones_data
+    results = PhoneDataImporter.new.import
+    if results == 'file_error'
+      flash[:error] = 'CSV Only for now.'
+    else
+      flash.notice = "#{results[:saved]} saved. \n #{results[:previous]} persisted. #{results[:errors]&.join('')}"
+    end
+    redirect_to phones_path
+  end
+  
+  def export_phones_data
+  
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
