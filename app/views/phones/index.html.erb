@@ -2,7 +2,8 @@
 
 <h1>Phones</h1>
 <%= link_to 'New Phone', new_phone_path, class: 'btn btn-secondary' %>
-<%= link_to 'Export Phones' %>
+<%= link_to 'Export CSV', export_phones_data_phones_path(format: 'csv'), class: 'btn btn-info disabled' %>
+<%= link_to 'Export Excel', export_phones_data_phones_path(format: 'xlsx'), class: 'btn btn-info' %>
 
 <table class="table table-white table-striped table-hover">
   <thead>

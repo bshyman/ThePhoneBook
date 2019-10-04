@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :phones do
     collection do
       post 'import_phones_data'
+      get 'export_phones_data'
     end
   end
   
