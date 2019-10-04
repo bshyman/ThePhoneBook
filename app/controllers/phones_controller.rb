@@ -60,15 +60,33 @@ class PhonesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def import_phones_data
+    results = PhoneDataImporter.new.import
+    if results == 'file_error'
+      flash[:error] = 'CSV Only for now.'
+    else
+      flash.notice = "#{results[:saved]} saved. \n #{results[:previous]} persisted. #{results[:errors]&.join('')}"
+    end
+    redirect_to phones_path
+  end
+  
+  def export_phones_data
+    format = params[:format]
+    service = PhoneDataExporter.new(format)
+    path = service.instance_variable_get('@excel_path')
+    send_file(path, filename: "phones-backup-#{Time.current}.#{format}")
+  end
+  
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_phone
-      @phone = Phone.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def phone_params
-      params.fetch(:phone, {})
-    end
+  
+  # Use callbacks to share common setup or constraints between actions.
+  def set_phone
+    @phone = Phone.find(params[:id])
+  end
+  
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def phone_params
+    params.fetch(:phone, {})
+  end
 end
