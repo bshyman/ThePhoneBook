@@ -5,16 +5,18 @@
 <%= link_to 'Export CSV', export_phones_data_phones_path(format: 'csv'), class: 'btn btn-info disabled' %>
 <%= link_to 'Export Excel', export_phones_data_phones_path(format: 'xlsx'), class: 'btn btn-info' %>
 
-<table class="table table-white table-striped table-hover">
+
+<table class="table">
   <thead>
     <tr>
       <th>Model</th>
       <th>IMEI</th>
       <th>Capacity</th>
       <th>Carrier</th>
+      <th>Actions</th>
     </tr>
   </thead>
-
+  
   <tbody>
     <% @phones.each do |phone| %>
       <tr>
@@ -22,6 +24,11 @@
         <td><%= phone.imei %></td>
         <td><%= phone.capacity %></td>
         <td><%= phone.original_carrier %></td>
+        <td class="td-actions">
+        <button class="btn btn-primary btn-sm btn-icon" rel="tooltip">
+          <i class="fa fa-pencil"></i>
+        </button>
+        </td>
       </tr>
     <% end %>
   </tbody>
