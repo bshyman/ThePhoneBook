@@ -1,1 +1,1 @@
-json.array! @phone_transactions, partial: "phone_transactions/phone_transaction", as: :phone_transaction
+json.array! @phone_tranzactions, partial: "phone_tranzactions/phone_tranzaction", as: :phone_tranzaction

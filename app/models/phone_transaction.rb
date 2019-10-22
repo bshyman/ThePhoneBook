@@ -1,2 +1,0 @@
-class PhoneTransaction < ApplicationRecord
-end

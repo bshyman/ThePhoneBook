@@ -1,10 +1,10 @@
-<%= form_with(model: transaction, local: true) do |form| %>
-  <% if transaction.errors.any? %>
+<%= form_with(model: tranzaction, local: true) do |form| %>
+  <% if tranzaction.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+      <h2><%= pluralize(tranzaction.errors.count, "error") %> prohibited this tranzaction from being saved:</h2>
 
       <ul>
-      <% transaction.errors.full_messages.each do |message| %>
+      <% tranzaction.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

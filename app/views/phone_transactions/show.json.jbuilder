@@ -1,1 +1,1 @@
-json.partial! "phone_transactions/phone_transaction", phone_transaction: @phone_transaction
+json.partial! "phone_tranzactions/phone_tranzaction", phone_tranzaction: @phone_tranzaction

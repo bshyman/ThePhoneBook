@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class PhoneTransactionsControllerTest < ActionDispatch::IntegrationTest
+class PhoneTranzactionsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @phone_transaction = phone_transactions(:one)
+    @phone_tranzaction = phone_tranzactions(:one)
   end
 
   test "should get index" do
-    get phone_transactions_url
+    get phone_tranzactions_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_phone_transaction_url
+    get new_phone_tranzaction_url
     assert_response :success
   end
 
-  test "should create phone_transaction" do
-    assert_difference('PhoneTransaction.count') do
-      post phone_transactions_url, params: { phone_transaction: {  } }
+  test "should create phone_tranzaction" do
+    assert_difference('PhoneTranzaction.count') do
+      post phone_tranzactions_url, params: { phone_tranzaction: {  } }
     end
 
-    assert_redirected_to phone_transaction_url(PhoneTransaction.last)
+    assert_redirected_to phone_tranzaction_url(PhoneTranzaction.last)
   end
 
-  test "should show phone_transaction" do
-    get phone_transaction_url(@phone_transaction)
+  test "should show phone_tranzaction" do
+    get phone_tranzaction_url(@phone_tranzaction)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_phone_transaction_url(@phone_transaction)
+    get edit_phone_tranzaction_url(@phone_tranzaction)
     assert_response :success
   end
 
-  test "should update phone_transaction" do
-    patch phone_transaction_url(@phone_transaction), params: { phone_transaction: {  } }
-    assert_redirected_to phone_transaction_url(@phone_transaction)
+  test "should update phone_tranzaction" do
+    patch phone_tranzaction_url(@phone_tranzaction), params: { phone_tranzaction: {  } }
+    assert_redirected_to phone_tranzaction_url(@phone_tranzaction)
   end
 
-  test "should destroy phone_transaction" do
-    assert_difference('PhoneTransaction.count', -1) do
-      delete phone_transaction_url(@phone_transaction)
+  test "should destroy phone_tranzaction" do
+    assert_difference('PhoneTranzaction.count', -1) do
+      delete phone_tranzaction_url(@phone_tranzaction)
     end
 
-    assert_redirected_to phone_transactions_url
+    assert_redirected_to phone_tranzactions_url
   end
 end

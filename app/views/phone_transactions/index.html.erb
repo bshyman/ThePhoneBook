@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Phone Transactions</h1>
+<h1>Phone Tranzactions</h1>
 
 <table>
   <thead>
@@ -10,11 +10,11 @@
   </thead>
 
   <tbody>
-    <% @phone_transactions.each do |phone_transaction| %>
+    <% @phone_tranzactions.each do |phone_tranzaction| %>
       <tr>
-        <td><%= link_to 'Show', phone_transaction %></td>
-        <td><%= link_to 'Edit', edit_phone_transaction_path(phone_transaction) %></td>
-        <td><%= link_to 'Destroy', phone_transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', phone_tranzaction %></td>
+        <td><%= link_to 'Edit', edit_phone_tranzaction_path(phone_tranzaction) %></td>
+        <td><%= link_to 'Destroy', phone_tranzaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Phone Transaction', new_phone_transaction_path %>
+<%= link_to 'New Phone Tranzaction', new_phone_tranzaction_path %>

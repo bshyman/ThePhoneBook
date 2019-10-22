@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class TransactionsControllerTest < ActionDispatch::IntegrationTest
+class TranzactionsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @transaction = transactions(:one)
+    @tranzaction = tranzactions(:one)
   end
 
   test "should get index" do
-    get transactions_url
+    get tranzactions_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_transaction_url
+    get new_tranzaction_url
     assert_response :success
   end
 
-  test "should create transaction" do
-    assert_difference('Transaction.count') do
-      post transactions_url, params: { transaction: {  } }
+  test "should create tranzaction" do
+    assert_difference('Tranzaction.count') do
+      post tranzactions_url, params: { tranzaction: {  } }
     end
 
-    assert_redirected_to transaction_url(Transaction.last)
+    assert_redirected_to tranzaction_url(Tranzaction.last)
   end
 
-  test "should show transaction" do
-    get transaction_url(@transaction)
+  test "should show tranzaction" do
+    get tranzaction_url(@tranzaction)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_transaction_url(@transaction)
+    get edit_tranzaction_url(@tranzaction)
     assert_response :success
   end
 
-  test "should update transaction" do
-    patch transaction_url(@transaction), params: { transaction: {  } }
-    assert_redirected_to transaction_url(@transaction)
+  test "should update tranzaction" do
+    patch tranzaction_url(@tranzaction), params: { tranzaction: {  } }
+    assert_redirected_to tranzaction_url(@tranzaction)
   end
 
-  test "should destroy transaction" do
-    assert_difference('Transaction.count', -1) do
-      delete transaction_url(@transaction)
+  test "should destroy tranzaction" do
+    assert_difference('Tranzaction.count', -1) do
+      delete tranzaction_url(@tranzaction)
     end
 
-    assert_redirected_to transactions_url
+    assert_redirected_to tranzactions_url
   end
 end

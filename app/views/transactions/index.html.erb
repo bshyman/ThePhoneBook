@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Transactions</h1>
+<h1>Tranzactions</h1>
 
 <table>
   <thead>
@@ -10,11 +10,11 @@
   </thead>
 
   <tbody>
-    <% @transactions.each do |transaction| %>
+    <% @tranzactions.each do |tranzaction| %>
       <tr>
-        <td><%= link_to 'Show', transaction %></td>
-        <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
-        <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', tranzaction %></td>
+        <td><%= link_to 'Edit', edit_tranzaction_path(tranzaction) %></td>
+        <td><%= link_to 'Destroy', tranzaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Transaction', new_transaction_path %>
+<%= link_to 'New Tranzaction', new_tranzaction_path %>

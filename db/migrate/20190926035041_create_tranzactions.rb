@@ -1,6 +1,6 @@
-class CreateTransactions < ActiveRecord::Migration[5.2]
+class CreateTranzactions < ActiveRecord::Migration[5.2]
   def change
-    create_table :transactions do |t|
+    create_table :tranzactions do |t|
       t.float :total
       t.float :subtotal
       t.float :insurance, default: 0.0

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'users/dashboard'
-  resources :transactions
+  resources :tranzactions
   resources :phones do
     collection do
       post 'import_phones_data'

@@ -15,13 +15,13 @@ ActiveRecord::Schema.define(version: 2019_09_28_022613) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "phone_transactions", force: :cascade do |t|
+  create_table "phone_tranzactions", force: :cascade do |t|
     t.bigint "phone_id"
-    t.bigint "transaction_id"
+    t.bigint "tranzaction_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["phone_id"], name: "index_phone_transactions_on_phone_id"
-    t.index ["transaction_id"], name: "index_phone_transactions_on_transaction_id"
+    t.index ["phone_id"], name: "index_phone_tranzactions_on_phone_id"
+    t.index ["tranzaction_id"], name: "index_phone_tranzactions_on_tranzaction_id"
   end
 
   create_table "phones", force: :cascade do |t|
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_09_28_022613) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "transactions", force: :cascade do |t|
+  create_table "tranzactions", force: :cascade do |t|
     t.float "total"
     t.float "subtotal"
     t.float "insurance", default: 0.0
