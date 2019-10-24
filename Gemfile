@@ -6,7 +6,6 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
-# gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'pg'
 gem 'puma', '~> 3.11'
@@ -17,8 +16,6 @@ gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
 gem 'write_xlsx'
-
-
 
 group :development do
   gem 'better_errors'
