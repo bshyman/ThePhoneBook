@@ -30,3 +30,10 @@ html, body {
 .full-width {
     width: 100%;
 }
+.weaker {
+    color: #aaaaaa;
+}
+
+.weak {
+    color: #F7F7F7;
+}

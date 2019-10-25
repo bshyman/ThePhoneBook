@@ -1,0 +1,23 @@
+
+<h2>Listings</h2>
+<%= link_to 'New Listing', new_listing_path, class:"btn btn-info" %>
+<div class="row">
+
+<% @listings.each do |listing| %>
+  
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <h4><%= listing.headline %></h4>
+      </div>
+      <div class="card-body">
+          <%= listing.description %>
+      </div>
+      <div class="card-footer weaker">
+        Carrier: <%= listing.phone.original_carrier %>
+        <span class="pull-right weaker">Capacity: <%= listing.phone.capacity %></span>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>

@@ -1,0 +1,38 @@
+<h4>New Listing</h4>
+  <% if @listing&.errors&.present? %>
+    <% @listing.errors.each do |err| %>
+      Error is : <%= err %>
+    <% end %>n
+  <% end %>
+<div class="row">
+  <div class="col-md-6 col-xs-12">
+    <%= form_with url: listings_path, scope: 'listing', multipart: true do |f| %>
+  
+      <div class="form-group">
+        <label for="headline" class="control-label">Headline</label>
+        <%= f.text_field :headline, class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <label for="description">Description</label>
+        <%= f.text_area :description, class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <label for="price">Price</label>
+        <%= f.number_field :price, class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <label for="fine_print">Fine Print</label>
+        <%= f.text_area :fine_print, class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <label for="upload" class='btn btn-info'>Upload Images</label>
+        <%= f.file_field :upload, multiple: true %>
+      </div>
+      <%= f.submit 'Create Listing', class: 'btn btn-success pull-right' %>
+    <% end %>
+  </div>
+</div>
