@@ -1,4 +1,7 @@
-<%= link_to 'New Listing', new_listing_path, class: "btn btn-info pull-right" %>
+<% if can?(:create, Listing) %>
+  <%= link_to 'New Listing', new_listing_path, class: "btn btn-info pull-right" %>
+<% end %>
+
 <h2>Listings</h2>
 <div class="row">
   
