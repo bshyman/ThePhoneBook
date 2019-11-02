@@ -1,8 +1,39 @@
 <p id="notice"><%= notice %></p>
+<div class="pull-right">
 
-<h1>Phones</h1>
-<%= link_to 'New Phone', new_phone_path, class: 'btn btn-secondary' %>
-<table class="table">
+<%= form_with url: import_phones_data_phones_path, html: {style:'display:inline;'} do |f| %>
+  <%= f.label :file, class: 'btn' do %>
+      <i class="fa fa-download"></i>
+    Import
+    <%= f.file_field :file, style: 'display: none;' %>
+  <% end %>
+<% end %>
+
+
+
+<!--  <div class="btn-group btn-block" role="group">-->
+<!--    <button id="btnGroupDrop1" type="button" class="btn btn-block btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--      Export-->
+<!--    </button>-->
+<!--    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">-->
+<%#= link_to 'Export CSV - Coming Soon', export_phones_data_phones_path(format: 'csv'), class: 'disabled dropdown-item' %>
+<!--    </div>-->
+<!--  </div>-->
+
+<%= link_to  export_phones_data_phones_path(format: 'xlsx'), class: 'btn export' do %>
+    <i class="fa fa-share"></i>
+    Export
+  <% end %>
+  
+  <%= link_to  new_phone_path, class: 'btn btn-secondary' do %>
+    <i class="fa fa-plus"></i>
+    New Phone
+  <% end %>
+
+</div>
+<div class="clearfix"></div>
+<table class="table" style="margin-top: 20px;">
+  
   <thead>
     <tr>
       <th>Model</th>

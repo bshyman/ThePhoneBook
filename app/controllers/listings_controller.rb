@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  
+  load_resource except: [:index]
   def index
     @listings = Listing.all
   end
