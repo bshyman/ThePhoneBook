@@ -17627,6 +17627,7 @@ table.tablesorter thead tr .headerSortDown {
   position: relative;
   padding: 0.5rem 0.7rem;
   z-index: 4;
+    min-height: 100px;
 }
 
 .sidebar .logo a.logo-mini,
