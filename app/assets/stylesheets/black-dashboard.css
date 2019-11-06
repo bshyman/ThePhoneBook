@@ -17627,6 +17627,7 @@ table.tablesorter thead tr .headerSortDown {
   position: relative;
   padding: 0.5rem 0.7rem;
   z-index: 4;
+    min-height: 100px;
 }
 
 .sidebar .logo a.logo-mini,
@@ -19790,7 +19791,7 @@ Copyright (c) 2015 Daniel Eden
 
 .white-content .card:not(.card-white) {
   background: #ffffff;
-  box-shadow: 0 1px 15px 0 rgba(, , , 0.05);
+  /*box-shadow: 0 1px 15px 0 rgba(, , , 0.05);*/
 }
 
 .white-content .card:not(.card-white) .card-header {

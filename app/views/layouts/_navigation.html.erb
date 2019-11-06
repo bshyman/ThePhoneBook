@@ -1,9 +1,14 @@
-<div class="logo">
+<div class="logo" style="min-height: 80px;">
   <%= image_tag 'phonebook.png' %>
 </div>
 
 <% if user_signed_in? %>
-  <%= link_to 'Sign out', signout_path, class: 'btn sidebar-btn btn-warning' %>
+
+  <%= link_to signout_path, class: 'btn sidebar-btn btn-warning' do %>
+    <i class="fa fa-google">
+      <%= current_user.email %>
+    </i>
+  <% end %>
 <% else %>
   <%= link_to signin_path, class: 'btn btn-success sidebar-btn' do %>
     <i class="fa fa-google"></i>
@@ -13,27 +18,17 @@
 <% end %>
 
 
-<%= form_with url: import_phones_data_phones_path, html: {style: 'width: 100%;'} do |f| %>
-  <%= f.label :file, class: 'sidebar-btn block btn btn-block' do %>
-    Import
-    <%= f.file_field :file, style: 'display: none;' %>
-  <% end %>
+
+<%= link_to  phones_path, class: ' btn sidebar-btn' do %>
+  <i class="fa fa-mobile"></i>
+  Phones
 <% end %>
 
+<%= link_to  tranzactions_path, class: 'btn sidebar-btn' do %>
+    <i class="fa fa-handshake-o"></i>
+  Transactions
+<% end %>
 
-
-<!--  <div class="btn-group btn-block" role="group">-->
-<!--    <button id="btnGroupDrop1" type="button" class="btn btn-block btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--      Export-->
-<!--    </button>-->
-<!--    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">-->
-<%#= link_to 'Export CSV - Coming Soon', export_phones_data_phones_path(format: 'csv'), class: 'disabled dropdown-item' %>
-<!--    </div>-->
-<!--  </div>-->
-
-<%= link_to 'Export', export_phones_data_phones_path(format: 'xlsx'), class: 'btn sidebar-btn export' %>
-<%= link_to 'Phones', phones_path, class: ' btn sidebar-btn' %>
-<%= link_to 'Transactions', tranzactions_path, class: 'btn sidebar-btn' %>
 <%= link_to 'Listings', listings_path, class: 'btn sidebar-btn' %>
 
 <style>
@@ -42,6 +37,13 @@
     color: white;
     display: block;
   }
+    .mr1 {
+      margin-right: 1em;
+    }
+    .mr2 {
+      margin-right: 2em;
+      
+    }
 </style>
 
 <script type="text/javascript" charset="utf-8">
