@@ -5,6 +5,7 @@ class ListingsController < ApplicationController
   end
   
   def new
+    @phones = Phone.all.order(updated_at: :desc)
   end
   
   def create

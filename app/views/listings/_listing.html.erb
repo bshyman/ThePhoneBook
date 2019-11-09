@@ -1,1 +1,103 @@
-<%= listing.headline %>
+<div class="row">
+  <div class="col-sm">
+    <div class="card">
+      <div class="card-body row">
+        <div class="col-sm-8">
+          <span class="weak">Capacity</span>
+          <div class="indented"><%= listing.phone.capacity %></div>
+          <span class="weak">Color</span>
+          <div class="indented"><%= listing.phone.color %></div>
+          <div class="weak">Carrier</div>
+          <div class="indented"><%= listing.phone.original_carrier.upcase %></div>
+          <div class="weak">IMEI</div>
+          <div class="indented"><code style="color:whitesmoke"><%= listing.phone.imei %></code></div>
+          <div class="weak">Model</div>
+          <div class="card-text indented"><%= listing.phone.model %></div>
+          <div class="weak">Description</div>
+          <div class="card-text indented"><%= listing.description %></div>
+        </div>
+        <div class="col-sm-4">
+          <div class="weak">Price</div>
+          <strong class="indented"><%= number_to_currency(listing.price) %></strong>
+          <% if listing.free_shipping %>
+            <div class="indented"><strong>Free Shipping</strong></div>
+          <% end %>
+          
+          <div class="weak">Battery</div>
+          <div class="card-text indented"><%= number_to_percentage(listing.phone.battery, precision: 0) %></div>
+          <div class="weak">Screen Condition</div>
+          <div class="card-text indented"><%= listing.phone.screen_condition %></div>
+          <div class="weak">Frame Condition</div>
+          <div class="card-text indented"><%= listing.phone.frame_condition %></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <% if listing.phone.known_issues %>
+          <div class="weak">Known Issues</div>
+          <div class="card-text indented"><%= listing.phone.known_issues&.join('<br>') %></div>
+        <% end %>
+        <span class="weak">
+            Fine Print
+          </span>
+        <div class="card-text indented"><%= listing.fine_print %></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="card">
+      <div class="card-body">
+        <% listing.listing_photos.each do |photo| %>
+          <span class='listing-photo' data-target="#image_modal" data-toggle="modal" data-url="<%= photo.url %>"><%= image_tag photo.url %></span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="image_modal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="" alt="">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .indented {
+    margin-left: 20px;
+  }
+  
+  .large {
+    font-size: 1.5em
+  }
+  
+  .weak {
+    color: #9A9A9A;
+  }
+  
+  .mt2 {
+    margin-top: 2em;
+  }
+</style>
+
+<script type="text/javascript" charset="utf-8">
+  $(function(){
+    $('.listing-photo').on('click', function(){
+      let src = $(this).data('url');
+      $('#image_modal .modal-body img').attr('src', src)
+    })
+  })
+</script>

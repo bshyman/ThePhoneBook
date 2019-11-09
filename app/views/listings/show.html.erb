@@ -1,1 +1,16 @@
+<nav class="breadcrumb">
+  <a class="breadcrumb-item" href="#">Listings</a>
+  <a class="breadcrumb-item active" href="#"><%= @listing.headline %></a>
+  <% if can?(:edit, Listing) %>
+    <%= link_to 'Edit', edit_listing_path(@listing), class: 'breadcrumb-item' %>
+  <% end %>
+  
+  
+</nav>
+
 <%= render partial: 'listing', locals: {listing: @listing} %>
+<style>
+  .breadcrumb-item {
+    color: white ;
+  }
+</style>
