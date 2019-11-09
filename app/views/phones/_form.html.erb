@@ -1,0 +1,28 @@
+<%= form_with model: @phone, html: {id: 'new-phone-form'} do |f| %>
+  <div class="form-group">
+    <%= f.label :model, class: 'control-label' %>
+    <%= f.select :model, options_for_select(phone_models_for_select), {prompt: 'Select One'}, class: 'form-control' %>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm">
+      <%= f.label :capacity, class: 'control-label' %>
+      <%= f.select :capacity, options_for_select(phone_capacities_for_select), {prompt: 'Select One'}, class: 'form-control' %>
+    </div>
+    <div class="col-sm">
+      <%= f.label :original_carrier, class: 'control-label' %>
+      <%= f.select :original_carrier, options_for_select(carriers_for_select), {prompt: 'Select One'}, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm">
+      <%= f.label :battery, class:'control_label' %>
+      <%= f.number_field :battery, in: 70..100, class: 'form-control' %>
+    </div>
+    <div class="col-sm">
+      <%= f.label :color %>
+      <%= f.select :color, options_for_select(colors_for_select), {prompt:'Select one'}, class:'form-control' %>
+    </div>
+  </div>
+<% end %>
+
+

@@ -18,6 +18,17 @@ class ListingsController < ApplicationController
     end
   end
   
+  def edit
+  end
+  
+  def update
+    if @listing.update!(listing_params)
+      redirect_to listing_path, notice: 'Saved Changes.'
+    else
+      redirect_to listing_path, error: 'Fail'
+    end
+    
+  end
   def listing_params
     params.require(:listing).permit(:headline, :description, :fine_print, :price, :free_shipping, :phone_id, listing_photos: [])
   end

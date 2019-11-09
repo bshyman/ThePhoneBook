@@ -1,5 +1,7 @@
-<h1>New Phone</h1>
-
-<%= render 'form', phone: @phone %>
-
 <%= link_to 'Back', phones_path %>
+
+<h4>New Phone</h4>
+<div class="col-sm-4">
+  <%= render partial: 'form' %>
+</div>
+

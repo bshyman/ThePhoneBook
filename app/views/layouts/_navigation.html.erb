@@ -3,12 +3,12 @@
 </div>
 
 <% if user_signed_in? %>
+  <div class="text-center text-primary">
+    <span class="fa fa-google text-primary"></span>
+    <%= current_user.email %>
+  </div>
+  <%= link_to 'Sign Out', signout_path, class: 'btn sidebar-btn btn-warning' %>
 
-  <%= link_to signout_path, class: 'btn sidebar-btn btn-warning' do %>
-    <i class="fa fa-google">
-      <%= current_user.email %>
-    </i>
-  <% end %>
 <% else %>
   <%= link_to signin_path, class: 'btn btn-success sidebar-btn' do %>
     <i class="fa fa-google"></i>

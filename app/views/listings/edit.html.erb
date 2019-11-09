@@ -1,23 +1,14 @@
-<h4>New Listing</h4>
 <% if @listing&.errors&.present? %>
   <% @listing.errors.each do |err| %>
     Error is : <%= err %>
   <% end %>n
 <% end %>
-<%= form_for Listing.new, scope: 'listing' do |f| %>
-  <div class="row">
-    <div class="col-md-6 col-xs-12">
+
+<div class="row">
+  <div class="col-md-6 col-xs-12">
+    <%= form_for @listing, method: 'put', scope: 'listing' do |f| %>
       <div class="form-group">
         <label for="headline" class="control-label">Headline</label>
-        <span class="pull-right">
-        
-        <label for="phone_id">
-          <span style="margin-right: 3em;">
-            Phone
-          </span>
-          <%= select_tag :phone_exists, options_for_select(%w(New Existing), 'New'), class: 'form-control phone-exists' %>
-        </label>
-        </span>
         <%= f.text_field :headline, class: 'form-control' %>
         <label for="description">Description</label>
         <%= f.text_area :description, class: 'form-control' %>
@@ -37,20 +28,21 @@
       <ul class="filenames" style="list-style-type: none;">
         <li></li>
       </ul>
-      <%= f.submit 'Create Listing', class: 'btn btn-block btn-success submit-btn' %>
-    </div>
-<% end %>
-<div class="col-md-6 ">
-  <div class="second-column">
-    <div class="phone-form">
-      <%= render partial: 'phones/form', locals: {} %>
-    </div>
-    <span class="existing-select" style="display:none;margin-top: 40px;">
-      <label for="phone_id">Select Phone</label>
-      <%= select_tag 'listing[phone_id]', options_from_collection_for_select(@phones, :id, :select_option), class: 'form-control' %>
-    </span>
+      <%= f.submit 'Update Listing', class: 'btn btn-block btn-success submit-btn' %>
+    <% end %>
   </div>
-</div>
+  <div class="col-md-6 hidden-xs">
+    <% @listing.listing_photos.last.tap do |photo| %>
+      <div>
+        <%= link_to delete_photo_listing_path(photo), method: :post do  %>
+          <i class="fa fa-times fa-2x delete-photo" style="position: absolute;color: red;"></i>
+        <% end %>
+      </div>
+        <%= image_tag photo.url unless photo.file.nil? %>
+        <div class="clearfix"></div>
+    <% end %>
+    
+  </div>
 </div>
 
 <script type="text/javascript" charset="utf-8">
@@ -62,18 +54,7 @@
     })
     
     $('.submit-btn').on('click', function (e) {
-      
-    })
-    
-    $('.phone-exists').on('change', function (e) {
-      let phone = $(this).find('option:selected').val();
-      if(phone === 'Existing') {
-        $('.existing-select').show();
-        $('.phone-form').hide();
-      } else {
-        $('.existing-select').hide();
-        $('.phone-form').show();
-      }
+      // e.preventDefault();
     })
   })
 </script>
