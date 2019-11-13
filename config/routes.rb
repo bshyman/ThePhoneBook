@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'pages/about'
+  get 'pages/landing'
+  post '/contact_me' => 'pages#contact_me', as: 'contact_me'
   get 'users/dashboard'
   resources :tranzactions
   resources :phones do
