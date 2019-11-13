@@ -3,6 +3,13 @@
 <% end %>
 
 <h2>Listings</h2>
+<% if can?(:manage, Listing) %>
+  <div class="btn-group">
+    <button class="btn listings">Active</button>
+    <button class="btn listings all-btn">All</button>
+  </div>
+<% end %>
+
 <div class="row">
   
   <% @listings.each do |listing| %>
@@ -31,3 +38,15 @@
     </div>
   <% end %>
 </div>
+  
+  <script type="text/javascript" charset="utf-8">
+    $(function () {
+      $('.listings').on('click', function (e) {
+        if($(this).hasClass('all-btn')) {
+          window.location = '<%= listings_path(scope: :all) %>';
+        } else {
+          window.location = '<%= listings_path%>';
+        }
+      })
+    })
+  </script>
