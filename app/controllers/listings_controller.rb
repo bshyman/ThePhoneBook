@@ -1,7 +1,8 @@
 class ListingsController < ApplicationController
   load_resource except: [:index]
   def index
-    @listings = Listing.all
+    @listings = Listing.active
+    @listings = Listing.all if params[:scope] == 'all'
   end
   
   def new

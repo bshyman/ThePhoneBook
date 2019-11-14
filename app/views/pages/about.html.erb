@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">What's the deal with this app?</h4>
+        <p class="card-text text-monospace"> Hey, my name is Benjamin Shyman and I'm a software developer based in Chicago.
+          I used to fix phones and don't miss that at all! I do still like money so I flip phones whenever I can get my hands on them.
+          This is an app I made to help with inventory tracking and accounting.
+          I recently added in listing capabilities and am selling devices (and maybe other crap) through this platform.
+          In the near future, I'll be integrating a payment processor or two.
+          This app is in alpha version so please bear with me if you encounter any errors.
+          Any ideas or feedback are greatly appreciated.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Let me know what you think</h4>
+        <%= form_with url: contact_me_path do |f| %>
+          <%= f.label :body, 'Message', class: 'control-label' %>
+          <%= f.text_area :body, class: 'form-control', required: 'required' %>
+          <div style="display:flex;justify-content: space-between;">
+            <%= f.label :email, 'Email', class: 'control-label', style:'margin-right: 10px;'%>
+            <%= f.email_field :email, class: 'form-control '%>
+            <%= f.label :name, class: 'control-label' , style: 'margin-right: 10px;margin-left:10px;'%>
+            <%= f.text_field :name, class: 'form-control '%>
+          </div>
+          <%= f.submit 'Send', class: 'btn btn-success pull-right' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--<table class="table">-->
+<!--  <thead>-->
+<!--  <th>FAQ</th>-->
+<!--  </thead>-->
+<!--  <tbody></tbody>-->
+<!--</table>-->

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm">
-    <div class="card">
+    <div class="card" style="margin-bottom: 0;">
       <div class="card-body row">
         <div class="col-sm-8">
           <span class="weak">Capacity</span>
@@ -17,6 +17,12 @@
           <div class="card-text indented"><%= listing.description %></div>
         </div>
         <div class="col-sm-4">
+          <% if can?(:manage, Listing)%>
+            <div class="card ">
+              <label for="">Status</label>
+              <h6 class="indented large text-monospace"><%= listing.status %></h6>
+            </div>
+          <% end %>
           <div class="weak">Price</div>
           <strong class="indented"><%= number_to_currency(listing.price) %></strong>
           <% if listing.free_shipping %>
@@ -42,6 +48,12 @@
         <div class="card-text indented"><%= listing.fine_print %></div>
       </div>
     </div>
+    <% if listing.active? %>
+      <div class="btn-group btn-block">
+        <%= link_to 'Buy', claim_listing_path(@listing), class: 'btn btn-info ' %>
+        <%= link_to 'Make Offer', claim_listing_path(@listing), class: 'btn ' %>
+      </div>
+    <% end %>
   </div>
   <div class="col-sm">
     <div class="card">
@@ -56,20 +68,10 @@
 
 <!-- Modal -->
 <div class="modal fade" id="image_modal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
+  <div class="modal-dialog modal-lg" role="document" style="bottom: 100px;">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
       <div class="modal-body">
         <img src="" alt="">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save</button>
       </div>
     </div>
   </div>

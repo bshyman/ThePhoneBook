@@ -1,5 +1,5 @@
 <nav class="breadcrumb">
-  <a class="breadcrumb-item" href="#">Listings</a>
+  <%= link_to 'Listings', listings_path, class:'breadcrumb-item' %>
   <a class="breadcrumb-item active" href="#"><%= @listing.headline %></a>
   <% if can?(:edit, Listing) %>
     <%= link_to 'Edit', edit_listing_path(@listing), class: 'breadcrumb-item' %>
