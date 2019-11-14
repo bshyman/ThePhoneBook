@@ -11,33 +11,36 @@
 <% end %>
 
 <div class="row">
-  
-  <% @listings.each do |listing| %>
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-header row">
-          <div class="col-sm-6">
-            <h4><%= link_to listing.headline, listing_path(listing) %></h4>
-          </div>
-          <div class="col-sm-6">
-            <% listing.listing_photos.each do |pic| %>
+  <% if @listings.present? %>
+    <% @listings.each do |listing| %>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header row">
+            <div class="col-sm-6">
+              <h4><%= link_to listing.headline, listing_path(listing) %></h4>
+            </div>
+            <div class="col-sm-6">
+              <% listing.listing_photos.each do |pic| %>
             <span class="pull-right">
               <%= image_tag pic.url(:thumb) %>
             </span>
-            <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="card-body">
+            <%= listing.description %>
+          </div>
+          <div class="card-footer weaker">
+            Carrier: <%= listing.phone.original_carrier %>
+            <span class="pull-right weaker">Capacity: <%= listing.phone.capacity %></span>
           </div>
         </div>
-        <div class="card-body">
-          <%= listing.description %>
-        </div>
-        <div class="card-footer weaker">
-          Carrier: <%= listing.phone.original_carrier %>
-          <span class="pull-right weaker">Capacity: <%= listing.phone.capacity %></span>
-        </div>
       </div>
+    <% end %>
     </div>
+  <% else %>
+    <h5 style="font-size: 2em;">Sorry, no active listings!</h5>
   <% end %>
-</div>
   
   <script type="text/javascript" charset="utf-8">
     $(function () {
