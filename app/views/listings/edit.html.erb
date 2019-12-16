@@ -34,7 +34,7 @@
   <div class="col-md-6 hidden-xs">
     <% @listing.listing_photos.last.tap do |photo| %>
       <div>
-        <%= link_to delete_photo_listing_path(photo), method: :post do  %>
+        <%= link_to listing_path(photo), method: :post do  %>
           <i class="fa fa-times fa-2x delete-photo" style="position: absolute;color: red;"></i>
         <% end %>
       </div>
