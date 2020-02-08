@@ -51,7 +51,7 @@ Rails.application.configure do
 
   config.action_mailer.smtp_settings = {
       address:              "smtp.gmail.com",
-      port:                 587,
+      port:                 465,
       domain:               'gmail.com',
       enable_starttls_auto: true,
       authentication:       "plain",
@@ -60,11 +60,11 @@ Rails.application.configure do
   }
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.raise_delivery_errors = true
-  # Send email in development mode?
+  
+  config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
-
+  
+  config.action_mailer.raise_delivery_errors = true
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true

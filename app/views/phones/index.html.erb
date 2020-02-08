@@ -35,31 +35,34 @@
 <table class="table" style="margin-top: 20px;">
   
   <thead>
-    <tr>
-      <th>Model</th>
-      <th>IMEI</th>
-      <th>Capacity</th>
-      <th>Carrier</th>
-      <th>Actions</th>
-    </tr>
+  <tr>
+    <th>Model</th>
+    <th>IMEI</th>
+    <th>Capacity</th>
+    <th>Carrier</th>
+  </tr>
   </thead>
   
   <tbody>
-    <% @phones.each do |phone| %>
-      <tr>
-        <td><%= phone.model %></td>
-        <td><%= phone.imei %></td>
-        <td><%= phone.capacity %></td>
-        <td><%= phone.original_carrier %></td>
-        <td class="td-actions">
-        <button class="btn btn-primary btn-sm btn-icon" rel="tooltip">
-          <i class="fa fa-pencil"></i>
-        </button>
-        </td>
-      </tr>
-    <% end %>
+  <% @phones.each.with_index do |phone, idx| %>
+    <tr class="phone-row clickable <%= 'transparent' if idx.even? %>" data-url="<%= phone_path(phone) %>">
+      <td><%= phone.model %></td>
+      <td><%= phone.imei %></td>
+      <td><%= phone.capacity %></td>
+      <td><%= phone.original_carrier %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
-
 <br>
 
+<script type="text/javascript" charset="utf-8">
+  $('.phone-row').on('click', function () {
+    window.location = $(this).data('url');
+  })
+</script>
+<style>
+  .transparent {
+    background-color: #000000;
+  }
+</style>

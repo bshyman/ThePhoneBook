@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :listings
+  resources :listings do
+    member do
+      post 'claim'
+    end
+  end
   
   get '/auth/:provider/callback'=>'sessions#create'
   get '/signin'=>'sessions#new', :as=>:signin

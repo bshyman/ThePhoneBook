@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_10_233849) do
+ActiveRecord::Schema.define(version: 2019_12_16_053720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "batches", force: :cascade do |t|
+    t.string "label"
+    t.datetime "received_at"
+    t.string "source"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "listings", force: :cascade do |t|
     t.string "headline", null: false
@@ -53,6 +61,8 @@ ActiveRecord::Schema.define(version: 2019_11_10_233849) do
     t.string "known_issues", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "batch_id"
+    t.index ["batch_id"], name: "index_phones_on_batch_id"
   end
 
   create_table "tranzactions", force: :cascade do |t|
@@ -91,4 +101,5 @@ ActiveRecord::Schema.define(version: 2019_11_10_233849) do
     t.integer "phone"
   end
 
+  add_foreign_key "phones", "batches"
 end

@@ -30,7 +30,10 @@ class ListingsController < ApplicationController
     end
     
   end
+  def claim
+  end
+  private
   def listing_params
-    params.require(:listing).permit(:headline, :description, :fine_print, :price, :free_shipping, :phone_id, listing_photos: [])
+    params.require(:listing).permit(:headline, :description, :fine_print, :price, :free_shipping, :phone_id, :status, listing_photos: [])
   end
 end
