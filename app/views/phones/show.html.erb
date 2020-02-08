@@ -2,3 +2,62 @@
 
 <%= link_to 'Edit', edit_phone_path(@phone) %> |
 <%= link_to 'Back', phones_path %>
+<hr>
+<div class="row">
+  <div class="col-sm-4">
+      <div class="card" style="background-color:#04878a; border-color:#aaaaaa;">
+        <!--  <img class="card-img-top" src="holder.js/100x180/" alt="">-->
+        <div class="card-body">
+          <h4 class="card-title">Device Information</h4>
+          <p class="card-text">
+              <strong>Model</strong>
+              <kbd><%= @phone.model %></kbd>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="row">
+  <div class="col-sm-4">
+      <div class="card" style="background-color:#04878a; border-color:#aaaaaa;">
+        <!--  <img class="card-img-top" src="holder.js/100x180/" alt="">-->
+        <div class="card-body">
+          <h4 class="card-title"><%= @phone.model %></h4>
+          <p class="card-text">Text</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table table-inverse table-inverse table-responsive">
+      <thead class="thead-inverse">
+      History
+  
+      
+      <tr>
+        <th>ID</th>
+        <th>Subtotal/Total</th>
+        <th>Buyer Name</th>
+        <th>Date</th>
+        <th>Status</th>
+      </tr>
+      </thead>
+      <tbody>
+          <% @tranzactions.each do |tranz| %>
+      <tr>
+        <td scope="row"><%= tranz.id %></td>
+        <td><%= tranz.subtotal %>/<%= tranz.total %></td>
+        <td><%= tranz.buyer_name %></td>
+        <td><%= tranz.created_at.to_date %></td>
+        <td><%= 'the status' %></td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+

@@ -11,6 +11,7 @@ class PhonesController < ApplicationController
   # GET /phones/1
   # GET /phones/1.json
   def show
+    @tranzactions = PhoneTranzaction.where(phone_id: @phone.id).collect(&:tranzaction)
   end
 
   # GET /phones/new
