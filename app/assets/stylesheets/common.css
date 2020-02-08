@@ -37,6 +37,7 @@ body {
     font-family: "Exo", sans-serif;
     /*background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);*/
     background: linear-gradient(-45deg, #004583, #450032, #3d1150, #473153);
+    /*background: linear-gradient(-45deg, #575FF2, #0e8379,#6B8DF2,#82B8D9);*/
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
 }

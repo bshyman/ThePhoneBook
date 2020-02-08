@@ -4,4 +4,7 @@ class Listing < ApplicationRecord
   mount_uploaders :listing_photos, ListingPhotoUploader
   
   enum status:[:draft, :active, :pending, :complete]
+  def self.formatted_select
+    statuses.map{|status, _|[status.upcase, status.to_sym]}
+  end
 end

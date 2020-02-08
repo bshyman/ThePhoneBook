@@ -20,11 +20,17 @@
           <% if can?(:manage, Listing)%>
             <div class="card ">
               <label for="">Status</label>
-              <h6 class="indented large text-monospace"><%= listing.status %></h6>
+              <h6 class="small-indent large text-monospace">
+                <%= listing.status %>
+              </h6>
             </div>
           <% end %>
           <div class="weak">Price</div>
-          <strong class="indented"><%= number_to_currency(listing.price) %></strong>
+          <h3>
+            <strong class="indented">
+              <%= number_to_currency(listing.price) %>
+            </strong>
+          </h3>
           <% if listing.free_shipping %>
             <div class="indented"><strong>Free Shipping</strong></div>
           <% end %>
@@ -50,8 +56,8 @@
     </div>
     <% if listing.active? %>
       <div class="btn-group btn-block">
-        <%= link_to 'Buy', claim_listing_path(@listing), class: 'btn btn-info ' %>
-        <%= link_to 'Make Offer', claim_listing_path(@listing), class: 'btn ' %>
+        <%= link_to 'Claim this shit', claim_listing_path(@listing),method: :post,  class: 'btn btn-info ' %>
+        <%= link_to 'Make lowball offer', claim_listing_path(@listing), class: 'btn ' %>
       </div>
     <% end %>
   </div>
@@ -78,6 +84,9 @@
 </div>
 
 <style>
+  .small-indent {
+    margin-left: 10px;
+  }
   .indented {
     margin-left: 20px;
   }

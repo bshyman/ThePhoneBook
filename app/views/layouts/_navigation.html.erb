@@ -3,10 +3,10 @@
 </div>
 
 <% if user_signed_in? %>
-  <div class="text-center text-primary">
-    <span class="fa fa-google text-primary"></span>
-    <%= current_user.email %>
-  </div>
+    <a class="btn sidebar-btn">
+      <%= current_user.email %>
+    </a>
+
   <%= link_to 'Sign Out', signout_path, class: 'btn sidebar-btn btn-warning' %>
 
 <% else %>
