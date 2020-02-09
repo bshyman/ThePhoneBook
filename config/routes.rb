@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'comments/index'
+  get 'comments/new'
+  get 'comments/create'
   get 'pages/about'
   get 'pages/landing'
   post '/contact_me' => 'pages#contact_me', as: 'contact_me'
@@ -12,6 +15,7 @@ Rails.application.routes.draw do
   end
   
   resources :listings do
+    resources :comments, only: [:index, :new, :create]
     member do
       post 'claim'
     end

@@ -29,6 +29,14 @@
     color: #F7F7F7;
 }
 
+.footnote {
+    color: #aaaaaa;
+    padding: 10px;
+    text-align: center;
+    display: block;
+    margin: 10px inherit;
+}
+
 /*BACKGROUND*/
 body {
     margin: 0;
