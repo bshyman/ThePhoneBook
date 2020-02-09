@@ -1,0 +1,6 @@
+<%= form_with url: listing_comments_path(@listing), scope: 'comment' do |f| %>
+  <%= f.hidden_field :listing_id, value: @listing.id %>
+  <%= f.label :body, 'Body', class: 'sr-only' %>
+  <%= f.text_field :body, class: 'form-control', placeholder: 'Insert comment here' %>
+  <%= f.submit 'Send', class: 'btn' %>
+<% end %>

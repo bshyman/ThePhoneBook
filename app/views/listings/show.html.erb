@@ -9,6 +9,8 @@
 </nav>
 
 <%= render partial: 'listing', locals: {listing: @listing} %>
+<hr>
+<%= render partial: 'comments', locals: {listing: @listing} %>
 <style>
   .breadcrumb-item {
     color: white ;
